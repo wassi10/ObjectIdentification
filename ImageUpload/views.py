@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+def handle_uploaded_file(f):
+    with open('img.jpg', 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
 
 def Home(request):
     return render(request, 'index.html')
